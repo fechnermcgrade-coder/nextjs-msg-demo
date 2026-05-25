@@ -1,7 +1,7 @@
 import { HomeClient } from "@/app/home-client";
 import { getHomeCategories, getHomePosts } from "@/lib/home-server";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const [initialPosts, initialCategories] = await Promise.all([
