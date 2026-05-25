@@ -13,3 +13,5 @@ next-dev-*
 dev-server-*
 codex-dev-server*
 codex-start-test.log
+.netlify/
+.netlify-upload-*/
