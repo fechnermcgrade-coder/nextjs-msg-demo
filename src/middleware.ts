@@ -6,7 +6,7 @@ const COOKIE_NAME = "blog_token";
 const PUBLIC_PATHS = new Set(["/", "/login", "/register"]);
 
 function getSecret() {
-  const value = process.env.JWT_SECRET;
+  const value = process.env.JWT_SECRET || process.env.AUTH_SECRET;
   if (!value || value.length < 16) return null;
   return new TextEncoder().encode(value);
 }

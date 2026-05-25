@@ -6,9 +6,9 @@ const resendCooldownSeconds = 60;
 const maxAttempts = 5;
 
 function codeSecret() {
-  const value = process.env.EMAIL_CODE_SECRET || process.env.JWT_SECRET;
+  const value = process.env.EMAIL_CODE_SECRET || process.env.JWT_SECRET || process.env.AUTH_SECRET;
   if (!value || value.length < 16) {
-    throw new Error("EMAIL_CODE_SECRET or JWT_SECRET must be at least 16 characters");
+    throw new Error("EMAIL_CODE_SECRET, JWT_SECRET, or AUTH_SECRET must be at least 16 characters");
   }
   return value;
 }

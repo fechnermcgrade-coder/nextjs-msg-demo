@@ -13,9 +13,9 @@ export const authCookieOptions = {
 };
 
 function secret() {
-  const value = process.env.JWT_SECRET;
+  const value = process.env.JWT_SECRET || process.env.AUTH_SECRET;
   if (!value || value.length < 16) {
-    throw new Error("JWT_SECRET must be at least 16 characters");
+    throw new Error("JWT_SECRET or AUTH_SECRET must be at least 16 characters");
   }
   return new TextEncoder().encode(value);
 }
