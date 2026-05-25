@@ -49,7 +49,8 @@ function writeStoredPostDetail(id: string, entry: PostDetailCacheEntry) {
 }
 
 export default function PostDetailPage() {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams<{ id: string }>();
+  const id = params?.id ?? "";
   const { user } = useAuth();
   const cached = postDetailCache.get(id);
   const [post, setPost] = useState<Post | null>(cached?.post ?? null);

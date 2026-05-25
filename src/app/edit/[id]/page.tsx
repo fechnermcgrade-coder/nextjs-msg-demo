@@ -8,11 +8,13 @@ import { Card } from "@/components/ui/card";
 import type { Post } from "@/types";
 
 export default function EditPage() {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams<{ id: string }>();
+  const id = params?.id;
   const [post, setPost] = useState<Post | null>(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
+    if (!id) return;
     fetch(`/api/posts/${id}`, { cache: "no-store" })
       .then((res) => readJson(res).then((data) => ({ ok: res.ok, data })))
       .then(({ ok, data }) => ok ? setPost(data.post) : setError(data.error || "无法编辑"));

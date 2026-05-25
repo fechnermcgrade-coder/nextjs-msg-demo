@@ -43,7 +43,8 @@ function writeStoredUserPage(id: string, entry: UserPageCacheEntry) {
 }
 
 export default function UserPage() {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams<{ id: string }>();
+  const id = params?.id ?? "";
   const { user: viewer } = useAuth();
   const cached = userPageCache.get(id);
   const [user, setUser] = useState<UserWithFollow | null>(cached?.user ?? null);

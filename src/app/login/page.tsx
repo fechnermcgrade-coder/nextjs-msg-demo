@@ -25,6 +25,7 @@ export default function LoginPage() {
 function LoginCard() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const nextPath = searchParams?.get("next") ?? null;
   const { user, setUser } = useAuth();
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
@@ -34,8 +35,8 @@ function LoginCard() {
 
   useEffect(() => {
     if (!user) return;
-    router.replace(safeInternalNext(searchParams.get("next")));
-  }, [router, searchParams, user]);
+    router.replace(safeInternalNext(nextPath));
+  }, [nextPath, router, user]);
 
   const submit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -61,7 +62,7 @@ function LoginCard() {
       }
       setUser(data.user);
       startTransition(() => {
-        router.push(safeInternalNext(searchParams.get("next")));
+        router.push(safeInternalNext(nextPath));
       });
     } finally {
       setIsSubmitting(false);

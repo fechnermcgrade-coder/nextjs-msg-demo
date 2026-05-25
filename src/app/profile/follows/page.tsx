@@ -31,7 +31,7 @@ export default function FollowsPage() {
 function FollowsContent() {
   const { user } = useAuth();
   const params = useSearchParams();
-  const type = getFollowType(params.get("type"));
+  const type = getFollowType(params?.get("type") ?? null);
   const [usersByType, setUsersByType] = useState<FollowCache>(() => followCache);
   const [loadingType, setLoadingType] = useState<FollowType | null>(followCache[type] ? null : type);
   const [actingId, setActingId] = useState<string | null>(null);

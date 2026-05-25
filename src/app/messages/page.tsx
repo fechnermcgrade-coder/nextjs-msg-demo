@@ -118,7 +118,7 @@ function linkifyText(content: string) {
 function MessagesContent() {
   const { user, loading } = useAuth();
   const searchParams = useSearchParams();
-  const peerId = searchParams.get("peer");
+  const peerId = searchParams?.get("peer") ?? null;
   const [threads, setThreads] = useState<Thread[]>(messageThreadCache.threads ?? []);
   const [active, setActive] = useState<Peer | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);

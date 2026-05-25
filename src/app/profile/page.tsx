@@ -105,9 +105,9 @@ function ProfileContent() {
   const router = useRouter();
   const userId = user?.id;
   const params = useSearchParams();
-  const requestedTab = params.get("tab");
-  const refreshKey = params.get("refresh");
-  const refreshPostId = params.get("post");
+  const requestedTab = params?.get("tab") ?? null;
+  const refreshKey = params?.get("refresh") ?? null;
+  const refreshPostId = params?.get("post") ?? null;
   const tab: ProfileTab = isProfileTab(requestedTab) ? requestedTab : "posts";
   const initialCache = userId ? getCachedProfile(userId) : null;
   const hasInitialTabCache = initialCache ? hasTabCache(initialCache.posts, tab) : false;
