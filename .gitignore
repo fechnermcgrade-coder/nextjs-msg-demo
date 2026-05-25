@@ -1,0 +1,15 @@
+.next/
+node_modules/
+.env
+.env.local
+.env.*.local
+public/uploads/*
+!public/uploads/.gitkeep
+*.log
+*.err.log
+tsconfig.tsbuildinfo
+.codex-*
+next-dev-*
+dev-server-*
+codex-dev-server*
+codex-start-test.log

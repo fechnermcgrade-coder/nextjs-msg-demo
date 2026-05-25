@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 42 36% 97%;
+  --foreground: 224 24% 14%;
+  --card: 0 0% 100%;
+  --muted: 220 15% 94%;
+  --border: 220 13% 86%;
+  --primary: 182 54% 29%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@keyframes route-progress {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+.prose-content h1,
+.prose-content h2,
+.prose-content h3 {
+  font-weight: 800;
+  margin: 1.2rem 0 0.6rem;
+}
+
+.prose-content p {
+  line-height: 1.8;
+  margin: 0.75rem 0;
+}
+
+.prose-content img {
+  border-radius: 8px;
+  max-width: 100%;
+}
